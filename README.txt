@@ -80,6 +80,7 @@ This status map should be returned by a utility with a structure similar to the 
 
 The status configuration is empty by default: we will consider the creation date as order criteria.
 
+For example workflow.py:
 
     from zope.interface import implements
     
@@ -106,6 +107,20 @@ The status configuration is empty by default: we will consider the creation date
     DMS_POLICY['pending'] = {'up':'publish_internally', 'down':'reject', 'priority':1}
     DMS_POLICY['private'] = {'up':'submit', 'down':'', 'priority':0}
     dms_policy = RevisionWorkflowUtility('dmspolicy', DMS_POLICY)
+
+And YOURPACKAGE/profiles/default/componentregistry.xml:
+
+    <?xml version="1.0"?>
+    <componentregistry>
+        <utilities>
+            <!-- The default revision workflow utility -->
+            <utility 
+                interface="redomino.revision.interfaces.IRevisionWorkflowUtility"
+                factory="YOURPACKAGE.workflow.dms_policy"
+                />
+        </utilities>
+    </componentregistry>
+
 
 See more examples in tests.
 
