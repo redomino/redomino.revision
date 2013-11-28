@@ -1,0 +1,79 @@
+.template-manage_revision #contentview-edit {
+    display: none;
+}
+
+.template-manage_revision #paste {
+    display: none;
+}
+
+.template-manage_revision #plone-contentmenu-display {
+    display: none;
+}
+
+#revision_metadata {
+    float: left;
+    clear: left;
+}
+
+
+#revision_list {
+    clear: both;
+}
+
+.commentBody {
+    box-shadow: 0 0 2px 0 #888888;
+}
+
+.commentActions input.destructive {
+
+}
+
+.icon{
+/*    background-image: url('../../++resource++redomino.revision.resources/revision_icons32.png');*/
+    background-image: url('../../++resource++redomino.revision.resources/revision_icons16.png');
+    background-repeat: no-repeat;
+    display: block;
+    text-indent:-999em;
+    width: 16px;
+    height: 16px;
+    float: left;
+    overflow: hidden;
+    margin-right:10px;
+}
+
+.revision_clone{
+/*    background-position: 0px 0px;*/
+    background-position: 0px 0px;
+    margin-bottom: 8px;
+}
+.revision_current{
+/*    background-position: 0px -42px;*/
+    background-position: 0px -26px;
+    display: inline-block;
+    float: none;
+}
+.revision_download{
+/*    background-position: 0px -84px;*/
+    background-position: 0px -52px;
+}
+.revision_edit{
+/*    background-position: 0px -126px;*/
+    background-position: 0px -78px;
+    margin-bottom: 8px;
+}
+.revision_delete{
+/*    background-position: 0px -168px;*/
+    background-position: 0px -104px;
+    margin-bottom: 8px;
+}
+
+.revision #plone-contentmenu-actions {
+    display: none;
+}
+.revision #plone-contentmenu-display {
+    display: none;
+}
+.revision #plone-contentmenu-factories {
+    display: none;
+}
+

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object>
+ <order manager="plone.belowcontentbody" skinname="css3theme">
+  <viewlet name="plone.belowcontentbody.relateditems"/>
+  <viewlet name="plone.abovecontenttitle.documentactions"/>
+  <viewlet name="plone.belowcontentbody.reverserelateditems"/>
+  <viewlet name="redomino.revision.metadata"/>
+  <viewlet name="redomino.revision.revisionlist"/>
+ </order>
+</object>

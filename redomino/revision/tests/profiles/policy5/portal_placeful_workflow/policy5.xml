@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<object name="policy5" meta_type="WorkflowPolicy">
+ <property name="title">Policy4</property>
+ <bindings>
+  <default>
+   <bound-workflow workflow_id="intranet_workflow"/>
+  </default>
+  <type type_id="File">
+   <bound-workflow workflow_id="intranet_workflow"/>
+  </type>
+  <type type_id="Folder">
+   <bound-workflow workflow_id="intranet_workflow"/>
+  </type>
+ </bindings>
+</object>

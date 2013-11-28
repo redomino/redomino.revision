@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layers>
+  <layer name="redomino.revision"
+         interface="redomino.revision.browser.interfaces.IRedominoRevisionLayer" />
+</layers>

@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="redomino.revision">
+
+  <!-- Testing GS profiles -->
+  <genericsetup:registerProfile
+      name="policy3"
+      title="redomino.revision test"
+      directory="profiles/policy3"
+      description="Installs the redomino.revision package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+</configure>

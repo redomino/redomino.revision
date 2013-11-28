@@ -1,0 +1,124 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="heroflon.gestioneordini">
+
+  <include package="Products.CMFCore" file="permissions.zcml" />
+
+  <!-- Resources -->
+  <browser:resourceDirectory
+      name="redomino.revision.resources"
+      directory="resources"
+      layer=".interfaces.IRedominoRevisionLayer"
+  />
+
+
+  <!-- Default page navigation -->
+  <browser:page
+      for="redomino.revision.interfaces.IRevision"
+      name="default_page"
+      class=".defaultpage.DefaultPage"
+      permission="zope.Public"
+      allowed_interface="plone.app.layout.navigation.interfaces.IDefaultPage"
+      layer=".interfaces.IRedominoRevisionLayer"
+  />
+
+  <!-- Folder contents redirect -->
+  <browser:page
+      for="redomino.revision.interfaces.IRevision"
+      name="folder_contents"
+      class=".folder_contents.FolderContentsView"
+      permission="zope2.View"
+      layer=".interfaces.IRedominoRevisionLayer"
+  />
+
+  <!-- Viewlets -->
+  <browser:viewletManager
+      name="plone.contentviews"
+      provides="plone.app.layout.viewlets.interfaces.IContentViews"
+      permission="zope2.View"
+      class=".manager.OrderedViewletManager"
+      for="redomino.revision.interfaces.IRevisionFile"
+      layer=".interfaces.IRedominoRevisionLayer"
+  />
+  <browser:viewlet
+      name="redomino.revision.metadata"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      view="plone.app.layout.globals.interfaces.IViewView"
+      for="redomino.revision.interfaces.IRevisionFile"
+      class=".viewlets.RevisionMetadataViewlet"
+      permission="zope2.View"
+      layer=".interfaces.IRedominoRevisionLayer"
+  />
+  <browser:viewlet
+      name="redomino.revision.revisionlist"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      view="plone.app.layout.globals.interfaces.IViewView"
+      for="redomino.revision.interfaces.IRevisionFile"
+      class=".viewlets.RevisionListViewlet"
+      permission="zope2.View"
+      layer=".interfaces.IRedominoRevisionLayer"
+  />
+  <browser:viewlet
+      name="redomino.revision.notlatest"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+      view="plone.app.layout.globals.interfaces.IViewView"
+      for="redomino.revision.interfaces.IRevisionFile"
+      class=".viewlets.RevisionNotLatestViewlet"
+      permission="zope2.View"
+      layer=".interfaces.IRedominoRevisionLayer"
+  />
+
+  <!-- Views -->
+  <browser:defaultView
+      name="revision_view"
+      for="redomino.revision.interfaces.IRevision"
+      layer=".interfaces.IRedominoRevisionLayer"
+  />
+  <browser:page
+      name="revision_view"
+      for="redomino.revision.interfaces.IRevision"
+      class=".revision.RevisionView"
+      permission="zope2.View"
+      layer=".interfaces.IRedominoRevisionLayer"
+      />
+  <browser:page
+      name="folder_listing"
+      for="redomino.revision.interfaces.IRevision"
+      class=".revision.RevisionView"
+      permission="zope2.View"
+      layer=".interfaces.IRedominoRevisionLayer"
+      />
+  <browser:page
+      name="revision_macros"
+      for="redomino.revision.interfaces.IRevisionFile"
+      template="templates/revision_macros.pt"
+      permission="zope2.View"
+      layer=".interfaces.IRedominoRevisionLayer"
+      />
+  <browser:page
+      name="manage_revision"
+      for="redomino.revision.interfaces.IRevision"
+      class=".manage_revision.ManageRevisionView"
+      permission="cmf.ModifyPortalContent"
+      layer=".interfaces.IRedominoRevisionLayer"
+      />
+
+  <!-- View actions -->
+  <browser:page
+      name="enable_revision"
+      for="redomino.revision.interfaces.IRevisionable"
+      class=".revision_actions.EnableRevisionView"
+      permission="cmf.ModifyPortalContent"
+      layer=".interfaces.IRedominoRevisionLayer"
+      />
+  <browser:page
+      name="clone_revision"
+      for="redomino.revision.interfaces.IRevisionFile"
+      class=".revision_actions.CloneRevisionView"
+      permission="cmf.AddPortalContent"
+      layer=".interfaces.IRedominoRevisionLayer"
+      />
+
+</configure>

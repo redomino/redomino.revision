@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<componentregistry>
+    <utilities>
+        <!-- The default revision workflow utility -->
+        <utility 
+            interface="redomino.revision.interfaces.IRevisionWorkflowUtility"
+            factory="redomino.revision.tests.workflow.policy5"
+            />
+    </utilities>
+</componentregistry>
+

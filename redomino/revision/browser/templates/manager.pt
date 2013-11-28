@@ -1,0 +1,7 @@
+<span class="revision">
+
+    <tal:repeat repeat="viewlet view/viewlets">
+         <tal:content content="structure viewlet/render" />
+    </tal:repeat>
+
+</span>

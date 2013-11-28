@@ -1,0 +1,10 @@
+<metal:use-macro use-macro="context/main_template/macros/master" i18n:domain="redomino.revision">
+
+    <metal:fill-slot fill-slot="main">
+
+        <h2 i18n:translate="manage_revision_folder_label">Manage revision folder</h2>
+        <p i18n:translate="manage_revision_folder_help">Here you can access to the revision folder and perform some actions: rename, change workflow status, sharing, etc</p>
+
+    </metal:fill-slot>
+
+</metal:use-macro>

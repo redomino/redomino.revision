@@ -1,0 +1,134 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-01-28 15:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: redomino.revision\n"
+
+#. Default: "Enable revision"
+#: ./profiles/default/actions.xml
+msgid "Enable revision"
+msgstr ""
+
+#. Default: "Revision code"
+#: ./profiles/default/portal_atct.xml
+msgid "Revision code"
+msgstr ""
+
+#. Default: "Error"
+#: ./browser/revision_actions.py:191
+msgid "cloned_revision_error"
+msgstr ""
+
+#. Default: "Revision cloned correctly"
+#: ./browser/revision_actions.py:193
+msgid "cloned_revision_ok"
+msgstr ""
+
+#. Default: "(current revision)"
+#: ./browser/templates/revisionlist_viewlet.pt:63
+msgid "current_revision_label"
+msgstr ""
+
+#. Default: "Error"
+#: ./browser/revision_actions.py:157
+msgid "enabled_revision_error"
+msgstr ""
+
+#. Default: "Revision created correctly"
+#: ./browser/revision_actions.py:161
+msgid "enabled_revision_ok"
+msgstr ""
+
+#. Default: "Delete this revision"
+#: ./browser/templates/revisionlist_viewlet.pt:121
+msgid "label_deleterevision"
+msgstr ""
+
+#. Default: "Delete"
+#: ./browser/templates/revisionlist_viewlet.pt:128
+msgid "label_deleterevisioncurrent"
+msgstr ""
+
+#. Default: "Edit this item"
+#: ./browser/templates/revisionlist_viewlet.pt:107
+msgid "label_editrevision"
+msgstr ""
+
+#. Default: "Create a new revision based on this one"
+#: ./browser/templates/revisionlist_viewlet.pt:114
+msgid "label_set_as_current_proposed_revision"
+msgstr ""
+
+#. Default: "Here you can access to the revision folder and perform some actions: rename, change workflow status, sharing, etc"
+#: ./browser/templates/manage_revision.pt:6
+msgid "manage_revision_folder_help"
+msgstr ""
+
+#. Default: "Manage revision folder"
+#: ./browser/templates/manage_revision.pt:5
+msgid "manage_revision_folder_label"
+msgstr ""
+
+#. Default: "manage revision folder"
+#: ./browser/templates/revisionlist_viewlet.pt:144
+msgid "manage_revision_folder_link"
+msgstr ""
+
+#. Default: "Here you can manage your revision folder:"
+#: ./browser/templates/revisionlist_viewlet.pt:143
+msgid "managerevisionfolder_help"
+msgstr ""
+
+#. Default: "Here you can manage your revisions"
+#: ./browser/templates/revisionlist_viewlet.pt:16
+msgid "managerevisions_help"
+msgstr ""
+
+#. Default: "Metadata"
+#: ./browser/templates/metadata_viewlet.pt:13
+msgid "metadatarevisions_label"
+msgstr ""
+
+#. Default: "This is not the current revision!"
+#: ./browser/templates/notlatest_viewlet.pt:5
+msgid "not_latest_revision_warn"
+msgstr ""
+
+#. Default: "Referred by revisions"
+#: ./browser/templates/metadata_viewlet.pt:47
+msgid "referredbyrevisions_label"
+msgstr ""
+
+#. Default: "Related revisions"
+#: ./browser/templates/metadata_viewlet.pt:41
+msgid "relatedrevisions_label"
+msgstr ""
+
+#. Default: "(download)"
+#: ./browser/templates/revisionlist_viewlet.pt:74
+msgid "revision_download"
+msgstr ""
+
+#. Default: "Revision"
+#: ./browser/templates/metadata_viewlet.pt:17
+msgid "revision_label"
+msgstr ""
+
+#. Default: "Revisions list"
+#: ./browser/templates/revisionlist_viewlet.pt:14
+msgid "revision_list_label"
+msgstr ""
+

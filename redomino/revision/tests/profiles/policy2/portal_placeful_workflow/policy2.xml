@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="policy2" meta_type="WorkflowPolicy">
+ <property name="title">Policy2</property>
+ <bindings>
+  <default>
+   <bound-workflow workflow_id="simple_publication_workflow"/>
+  </default>
+ </bindings>
+</object>

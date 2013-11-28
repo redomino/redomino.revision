@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="policy4" meta_type="WorkflowPolicy">
+ <property name="title">Policy4</property>
+ <bindings>
+  <default>
+   <bound-workflow workflow_id="intranet_workflow"/>
+  </default>
+ </bindings>
+</object>

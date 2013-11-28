@@ -1,0 +1,147 @@
+<div id="revision_list"
+     i18n:domain="redomino.revision"
+     tal:define="revisionfile_info view/revisionfile_info;
+                 revisions view/revisions;
+                 toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+                 plone_portal_state nocall:context/@@plone_portal_state;
+                 plone_tools context/@@plone_tools;
+                 membership plone_tools/membership;
+                 checkPermission nocall:membership/checkPermission;
+                 portal_url plone_portal_state/portal_url;
+                 revision_info view/revision_info;
+                 revision_folder revision_info/revision_folder;
+                ">
+    <h2 i18n:translate="revision_list_label">Revisions list</h2>
+
+    <span class="discreet" i18n:translate="managerevisions_help">Here you can manage your revisions</span> 
+
+
+    <table class="listing" id="listing-table">
+
+
+        <thead>
+            <tr>
+                <th class="nosort column">#</th>
+<!--                <th class="nosort column" i18n:translate="revision_label">Revision</th>-->
+                <th class="nosort column" i18n:domain="plone" i18n:translate="listingheader_title">Title</th>
+                <th class="nosort column" i18n:domain="plone" i18n:translate="label_effective_date">Publication date</th>
+                <th class="nosort column" i18n:domain="plone" i18n:translate="listingheader_author">Creator</th>
+                <th class="nosort column" i18n:domain="plone" i18n:translate="listingheader_status">Status</th>
+                <th class="nosort column" i18n:domain="plone" i18n:translate="heading_actions">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tal:define define="items revisions;
+                                ploneview nocall:context/@@plone;
+                                normalizeString nocall:ploneview/normalizeString;
+                               ">
+
+                <tal:repeat repeat="item items">
+
+                    <tr tal:define="item_info item/obj_info;
+                                    item_obj nocall:item/obj;
+                                    item_url item_info/url;
+                                    item_base_url item_info/base_url;
+                                    item_download_url item_info/download_url;
+                                    item_code item_info/code;
+                                    item_status item_info/status;
+                                    item_status_class python: 'state-' + normalizeString(item_status);
+                                    item_is_latest item_info/is_latest;
+                                    item_description item_info/description;
+                                    item_publication_date item_info/publication_date;
+                                    item_creator item_info/creator;
+                                    item_author item_info/author;
+                                    item_authorname item_info/authorname;
+                                    item_title item_info/title;"
+                        tal:attributes="class python:item_is_latest and 'latest' or '';">
+
+                        <!-- REVISION -->
+                        <td>
+                            <a tal:attributes="href item_url;">
+                                <span tal:replace="item_code"/>  
+                                <span class="icon revision_current" tal:condition="item_is_latest" i18n:translate="current_revision_label">(current revision)</span>
+                            </a>
+                        </td>
+    
+                        <!-- TITLE -->
+                        <td>
+                            <tal:condition condition="item_download_url">
+                                <a href="" class=""
+                                   target="_blank"
+                                   tal:attributes="href  item_download_url;
+                                                   title item_description;">
+                                    <span class="icon revision_download" i18n:translate="revision_download">(download) </span>
+                                </a>
+                            </tal:condition>
+                            <a tal:attributes="href item_url">
+                                <span tal:replace="item_title"/>
+                            </a>
+                        </td>             
+    
+                        <!-- PUBLISHED -->      
+                        <td>
+                            <tal:condition condition="item_publication_date">
+                                <span tal:content="python:toLocalizedTime(item_publication_date)"/>
+                            </tal:condition>
+                        </td>
+    
+                        <!-- CREATOR -->
+                        <td>
+                            <a href="#"
+                               tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${item_creator}"
+                               tal:content="item_authorname"
+                               tal:omit-tag="not:item_authorname">Roland Barthes</a>
+                        </td>
+    
+                        <!-- STATUS -->
+                        <td>
+                            <span tal:attributes="class item_status_class;" i18n:domain="plone" i18n:translate="" tal:content="item_status" ></span>
+
+                        </td>                                    
+    
+                        <!-- ACTIONS -->
+                        <td>
+    
+                            <tal:block condition="python:checkPermission('Modify portal content', item_obj)">
+                                <a tal:attributes="href string:${item_base_url}/edit" class="icon revision_edit"
+                                   title="Edit this item" i18n:attributes="title label_editrevision">
+                                    <i18n:block translate="label_editrevision">Edit this item</i18n:block>
+                                </a>
+                            </tal:block>
+    
+                            <tal:block condition="python:checkPermission('Copy or Move', item_obj) and checkPermission('Add portal content', revision_folder)">
+                                <a href="" tal:attributes="href string:${item_base_url}/@@clone_revision;" class="icon revision_clone"
+                                   title="Create a new revision based on this one" i18n:attributes="title label_set_as_current_proposed_revision">
+                                    <i18n:block translate="label_set_as_current_proposed_revision">Create a new revision based on this one</i18n:block>
+                                </a>
+                            </tal:block>
+    
+                            <tal:block condition="python:checkPermission('Delete objects', revision_folder) and len(items)>1">
+                                <a tal:attributes="href string:${item_base_url}/delete_confirmation" class="icon revision_delete"
+                                   title="Delete this revision" i18n:attributes="title label_deleterevision">
+                                    <i18n:block translate="label_deleterevision">Delete this revision</i18n:block>
+                                </a>
+                            </tal:block>
+
+                            <tal:block condition="python:checkPermission('Delete objects', revision_folder) == len(items)==1">
+                                <a tal:define="revision_folder_url revision_folder/@@plone_context_state/object_url;" class="icon revision_delete"
+                                   tal:attributes="href string:${revision_folder_url}/delete_confirmation"
+                                   title="Delete" i18n:attributes="title label_deleterevisioncurrent">
+                                    <i18n:block translate="label_deleterevisioncurrent">Delete</i18n:block>
+                                </a>
+                            </tal:block>
+    
+                        </td>  
+                    </tr>
+                </tal:repeat>
+            </tal:define>      
+        </tbody>
+    </table>
+
+    <p id="revision_folder_link" tal:condition="python:checkPermission('Modify portal content', revision_folder)">
+        <span i18n:translate="managerevisionfolder_help">Here you can manage your revision folder:</span>
+        <a href="" tal:attributes="href string:${revision_folder/absolute_url}/@@manage_revision;" i18n:translate="manage_revision_folder_link"> manage revision folder </a>
+    </p>
+
+</div>

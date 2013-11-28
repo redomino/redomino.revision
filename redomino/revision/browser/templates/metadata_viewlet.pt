@@ -1,0 +1,54 @@
+<div id="revision_metadata"
+     i18n:domain="redomino.revision"
+     tal:define="revisionfile_info view/revisionfile_info;
+                 ploneview nocall:context/@@plone;
+                 normalizeString nocall:ploneview/normalizeString;
+                 toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+                 item_status revisionfile_info/status;
+                 item_status_class python: 'state-' + normalizeString(item_status);
+                 item_modification_date revisionfile_info/modification_date;
+                 item_publication_date revisionfile_info/publication_date;
+                 item_creation_date revisionfile_info/creation_date;
+                 ">
+    <h2 i18n:translate="metadatarevisions_label">Metadata</h2>
+    <table class="listing">
+        <tbody summary="Revision details">
+            <tr>
+                <th i18n:translate="revision_label">Revision</th>
+                <td><tal:content content="revisionfile_info/code" /></td>
+            </tr>
+            <tr>
+                <th i18n:domain="plone" i18n:translate="label_creation_date">Created</th>
+                <td><tal:content condition="item_creation_date" content="python:toLocalizedTime(item_creation_date)" /></td>
+            </tr>
+            <tr>
+                <th i18n:domain="plone" i18n:translate="label_effective_date">Publication date</th>
+                <td><tal:content condition="item_publication_date" content="python:toLocalizedTime(item_publication_date)" /></td>
+            </tr>
+            <tr>
+                <th i18n:domain="plone" i18n:translate="label_modification_date">Modified</th>
+                <td><tal:content condition="item_modification_date" content="python:toLocalizedTime(item_modification_date)" /></td>
+            </tr>
+            <tr>
+                <th i18n:domain="plone" i18n:translate="listingheader_status">Status</th>
+                <td>
+                    <span i18n:domain="plone" i18n:translate="" 
+                          tal:attributes="class item_status_class;" 
+                          tal:content="item_status"/>
+                </td>
+            </tr>
+            <tr>
+                <th i18n:translate="relatedrevisions_label">Related revisions</th>
+                <td tal:define="related revisionfile_info/referring_info;">
+                    <metal:use-macro use-macro="context/@@revision_macros/related_items" />
+                </td>
+            </tr>
+            <tr>
+                <th i18n:translate="referredbyrevisions_label">Referred by revisions</th>
+                <td tal:define="related revisionfile_info/referred_by_info;">
+                    <metal:use-macro use-macro="context/@@revision_macros/related_items" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<atcttool xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <topic_metadata>
+  <metadata name="revision_code" description="Revision code" enabled="True"
+     i18n:domain="redomino.revision"
+     i18n:attributes="description; friendlyName"
+     friendlyName="Revision code"/>
+ </topic_metadata>
+</atcttool>

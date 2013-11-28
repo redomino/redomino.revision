@@ -1,0 +1,6 @@
+<dl class="portalMessage warning"
+    i18n:domain="redomino.revision"
+    tal:condition="not:view/latest">
+    <dt i18n:domain="plone" i18n:translate="">Warning</dt>
+    <dd i18n:translate="not_latest_revision_warn">This is not the current revision!</dd>
+</dl>
