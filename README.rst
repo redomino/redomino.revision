@@ -46,6 +46,12 @@ Since real and complex team collaborative systems are heavily based on workflows
 So if you have a collaborative editing based on workflows you can write your plugin and provide your specific workflow priority map, without having to fork the original core.
 
 
+.. figure:: https://raw.github.com/redomino/redomino.revision/master/docs/screenshots/revision_example_integration.png
+    :figwidth: image
+
+    redomino.revision in action. As you can see you can extend redomino.revision with extra plugins in order to provide new features
+    
+
 Workflow based versioning policy
 --------------------------------
 
