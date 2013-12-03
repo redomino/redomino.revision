@@ -55,7 +55,7 @@ The status configuration is stored on a dict that provides a status priority.
 
 This dict defines a status ordering, from the higher status (for example: published) to lower status (for example: new) and 
 a transition map that let you sail up or down the status level.
-This status map should be returned by a utility with a structure similar to the following one:
+This status map should be returned by a utility with a structure similar to the following one::
 
     
     PRIORITY_MAP = dict(default=dict())  
@@ -79,7 +79,7 @@ This status map should be returned by a utility with a structure similar to the 
 
 The status configuration is empty by default: we will consider the creation date as order criteria.
 
-For example workflow.py:
+For example workflow.py::
 
     from zope.interface import implements
     
@@ -107,7 +107,7 @@ For example workflow.py:
     DMS_POLICY['private'] = {'up':'submit', 'down':'', 'priority':0}
     dms_policy = RevisionWorkflowUtility('dmspolicy', DMS_POLICY)
 
-And YOURPACKAGE/profiles/default/componentregistry.xml:
+And YOURPACKAGE/profiles/default/componentregistry.xml::
 
     <?xml version="1.0"?>
     <componentregistry>
