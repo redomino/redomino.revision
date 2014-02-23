@@ -144,5 +144,5 @@ Authors
 -------
 
 * Davide Moro <davide.moro@redomino.com> (@davidemoro)
-
+* Fabrizio Reale <fabrizio.reale@redomino.com> (@realefab)
 
